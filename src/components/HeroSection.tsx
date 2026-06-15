@@ -45,10 +45,11 @@ const galleryCategories: GalleryCategory[] = [
     color: 'bg-[#e7a4b8]',
     tabletOnly: true,
     images: [
+      '/hoodies/hoodie (5).png',
+      '/hoodies/hoodie (3).png',
       '/hoodies/hoodie (2).png',
       '/hoodies/hoodie (1).png',
-      '/hoodies/hoodie (3).png',
-      '/hoodies/hoodie (4).png',
+      '/hoodies/hoodie (6).png',
       '/hoodies/sacred_hoodie.png',
     ],
   },
