@@ -6,7 +6,7 @@ import ScrollReveal from './ScrollReveal';
 const ContactSection: React.FC = () => {
   const [sentStatus, setSentStatus] = useState<'idle' | 'sending' | 'done'>('idle');
 
-  const SendButton = () => (
+  const renderSendButton = () => (
     <button
       onClick={(e) => {
         e.preventDefault();
@@ -172,7 +172,7 @@ const ContactSection: React.FC = () => {
             </div>
 
             <div className="pt-2">
-              <SendButton />
+              {renderSendButton()}
             </div>
           </form>
         </div>
@@ -247,7 +247,7 @@ const ContactSection: React.FC = () => {
                         ></motion.textarea>
                       </div>
                       <div className="md:hidden">
-                        <SendButton />
+                        {renderSendButton()}
                       </div>
                     </div>
                     <div className="pl-6 border-l border-black/10 space-y-0.5 order-6 md:order-6">
@@ -261,7 +261,7 @@ const ContactSection: React.FC = () => {
                     </div>
 
                     <div className="hidden md:flex items-center order-7 md:order-7">
-                      <SendButton />
+                      {renderSendButton()}
                     </div>
                     <div className="hidden md:flex items-center gap-8 pl-2 order-8 md:order-8 text-[#1A1F3A]">
                       <a href="#" className="group relative flex items-center justify-center text-[#1A1F3A]/60 hover:text-[#2563eb] transition-all duration-300">

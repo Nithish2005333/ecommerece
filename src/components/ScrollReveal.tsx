@@ -94,7 +94,7 @@ function getTransition(variant: RevealVariant, duration: number, delay: number):
   return {
     duration,
     delay,
-    ease: EXPO_OUT as any,
+    ease: EXPO_OUT as unknown as [number, number, number, number],
   };
 }
 

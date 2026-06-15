@@ -232,7 +232,7 @@ const HeroSection: React.FC = () => {
             transition={{ 
               delay: 2.9, 
               duration: 1.2, 
-              ease: [0.16, 1, 0.3, 1] as any 
+              ease: [0.16, 1, 0.3, 1] as [number, number, number, number] 
             }}
             className="text-[38px] sm:text-4xl md:text-5xl lg:text-[4.2rem] font-black tracking-tighter mb-2 text-balance leading-[1.05] text-[#1e293b] drop-shadow-sm"
           >
@@ -306,7 +306,7 @@ const HeroSection: React.FC = () => {
               transition={{ 
                 delay: 2.9 + (idx * 0.1), 
                 duration: 1.5, 
-                ease: [0.16, 1, 0.3, 1] as any 
+                ease: [0.16, 1, 0.3, 1] as [number, number, number, number] 
               }}
               className={`relative flex-1 max-w-[320px] ${item.h} ${item.mb} ${item.desktopOnly ? 'hidden md:block' : ''} ${item.tabletOnly ? 'hidden sm:block' : ''}`}
             >

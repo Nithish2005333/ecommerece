@@ -4,7 +4,7 @@ import { Search, User } from 'lucide-react';
 import Lottie from 'lottie-react';
 import cartAnimation from '../assets/cart-animation.json';
 
-const LottieComponent = (Lottie as any).default || Lottie;
+const LottieComponent = (Lottie as unknown as { default?: React.ComponentType<{ animationData: unknown; loop?: boolean; className?: string }> }).default || (Lottie as React.ComponentType<{ animationData: unknown; loop?: boolean; className?: string }>);
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
         transition={{
           duration: 0.9,
           delay: 2.7,
-          ease: [0.16, 1, 0.3, 1] as any,
+          ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
         }}
       >
         <div className="flex flex-1 justify-start items-center">
