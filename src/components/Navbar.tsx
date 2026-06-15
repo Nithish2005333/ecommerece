@@ -4,7 +4,7 @@ import { Search, User } from 'lucide-react';
 import Lottie from 'lottie-react';
 import cartAnimation from '../assets/cart-animation.json';
 
-const LottieComponent = (Lottie as unknown as { default?: React.ComponentType<{ animationData: unknown; loop?: boolean; className?: string }> }).default || (Lottie as React.ComponentType<{ animationData: unknown; loop?: boolean; className?: string }>);
+const LottieComponent = (Lottie as any).default || Lottie;
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,15 +27,15 @@ const Navbar: React.FC = () => {
         transition={{
           duration: 0.9,
           delay: 2.7,
-          ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+          ease: [0.16, 1, 0.3, 1] as any,
         }}
       >
         <div className="flex flex-1 justify-start items-center">
           <div className="relative block h-7 md:h-10 aspect-[4/1] hover:opacity-80 transition-opacity cursor-pointer">
-            <img 
-              src="/logo-full.png" 
-              alt="SACROSANCT" 
-              className="h-full w-auto object-contain" 
+            <img
+              src="/logo-full.png"
+              alt="SACROSANCT"
+              className="h-full w-auto object-contain"
             />
           </div>
         </div>
@@ -59,23 +59,23 @@ const Navbar: React.FC = () => {
           >
             <Search className="w-[18px] h-[18px] md:w-[22px] md:h-[22px]" />
           </button>
-          
-          <button 
+
+          <button
             className="p-2 hover:bg-black/5 rounded-full transition-all hover:scale-110 active:scale-90 cursor-pointer text-[#1e293b] hover:text-[#2563eb]"
             aria-label="Account"
           >
             <User className="w-[18px] h-[18px] md:w-[22px] md:h-[22px]" />
           </button>
 
-          <button 
+          <button
             className="relative p-2 hover:bg-black/5 rounded-full transition-all hover:scale-110 active:scale-90 flex items-center justify-center cursor-pointer text-[#1e293b] hover:text-[#2563eb]"
             aria-label="Cart"
           >
             <div className="relative w-[18px] h-[18px] md:w-6 md:h-6 flex items-center justify-center">
-              <LottieComponent 
-                animationData={cartAnimation} 
-                loop={true} 
-                className="w-full h-full" 
+              <LottieComponent
+                animationData={cartAnimation}
+                loop={true}
+                className="w-full h-full"
               />
             </div>
           </button>

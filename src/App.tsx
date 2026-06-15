@@ -7,7 +7,10 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
 class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean; error: Error | null }> {
-  state: { hasError: boolean; error: Error | null } = { hasError: false, error: null };
+  constructor(props: any) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
 
   static getDerivedStateFromError(error: Error) {
     return { hasError: true, error };

@@ -14,8 +14,8 @@ export type RevealVariant =
   | 'flip-left'
   | 'rise'
   | 'blur'
-  | 'editorial' 
-  | 'unmask'    
+  | 'editorial'
+  | 'unmask'
   | 'none';
 
 interface ScrollRevealProps {
@@ -94,7 +94,7 @@ function getTransition(variant: RevealVariant, duration: number, delay: number):
   return {
     duration,
     delay,
-    ease: EXPO_OUT as unknown as [number, number, number, number],
+    ease: EXPO_OUT as any,
   };
 }
 
@@ -110,26 +110,26 @@ export default function ScrollReveal({
   staggerDelay = 0.05,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { 
-    once, 
-    amount: typeof window !== 'undefined' && window.innerWidth < 768 ? 0.05 : amount, 
-    margin: '0px 0px -20px 0px' 
+  const inView = useInView(ref, {
+    once,
+    amount: typeof window !== 'undefined' && window.innerWidth < 768 ? 0.05 : amount,
+    margin: '0px 0px -20px 0px'
   });
 
   const parentVariants: Variants = stagger
     ? {
-        hidden: {},
-        visible: {
-          transition: {
-            staggerChildren: staggerDelay,
-            delayChildren: delay,
-          },
+      hidden: {},
+      visible: {
+        transition: {
+          staggerChildren: staggerDelay,
+          delayChildren: delay,
         },
-      }
+      },
+    }
     : variantMap[variant];
 
   const isUnmask = variant === 'unmask';
-  
+
   return (
     <motion.div
       ref={ref}
@@ -138,9 +138,9 @@ export default function ScrollReveal({
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
       transition={stagger ? undefined : getTransition(variant, duration, delay)}
-      style={{ 
+      style={{
         perspective: '1200px',
-        willChange: 'transform, opacity, filter, clip-path' 
+        willChange: 'transform, opacity, filter, clip-path'
       }}
     >
       {children}
@@ -191,9 +191,9 @@ export function SectionReveal({
       variants={variantMap['editorial']}
       animate={inView ? 'visible' : 'hidden'}
       transition={getTransition('editorial', 0.8, delay)}
-      style={{ 
+      style={{
         perspective: '1200px',
-        willChange: 'transform, opacity, filter' 
+        willChange: 'transform, opacity, filter'
       }}
     >
       {children}

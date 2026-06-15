@@ -125,8 +125,8 @@ const GalleryCard: React.FC<{ category: GalleryCategory; index: number; isMobile
     return () => clearTimeout(startOffset);
   }, [category.images.length, index]);
 
-  const roundedClass = isMobile 
-    ? 'rounded-t-[12rem]' 
+  const roundedClass = isMobile
+    ? 'rounded-t-[12rem]'
     : 'rounded-t-[200px] md:rounded-t-[300px]';
 
   return (
@@ -147,8 +147,8 @@ const GalleryCard: React.FC<{ category: GalleryCategory; index: number; isMobile
         />
       </AnimatePresence>
 
-      <div 
-        className={`absolute inset-0 ${category.color} mix-blend-multiply pointer-events-none z-10`} 
+      <div
+        className={`absolute inset-0 ${category.color} mix-blend-multiply pointer-events-none z-10`}
       />
     </div>
   );
@@ -222,17 +222,17 @@ const HeroSection: React.FC = () => {
           transform: translateY(0);
         }
       `}</style>
-      
+
       <div className="absolute top-[12%] sm:top-[8%] md:top-[13%] left-[4%] md:left-[2.5%] lg:left-[3.5%] w-full max-w-[800px] z-20 pointer-events-auto text-left px-4">
-        
+
         <div className="overflow-hidden">
-          <motion.h1 
+          <motion.h1
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
-            transition={{ 
-              delay: 2.9, 
-              duration: 1.2, 
-              ease: [0.16, 1, 0.3, 1] as [number, number, number, number] 
+            transition={{
+              delay: 2.9,
+              duration: 1.2,
+              ease: [0.16, 1, 0.3, 1] as any
             }}
             className="text-[38px] sm:text-4xl md:text-5xl lg:text-[4.2rem] font-black tracking-tighter mb-2 text-balance leading-[1.05] text-[#1e293b] drop-shadow-sm"
           >
@@ -242,7 +242,7 @@ const HeroSection: React.FC = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 md:gap-1 max-w-[800px]">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 3.3, duration: 0.8 }}
@@ -277,14 +277,14 @@ const HeroSection: React.FC = () => {
       </div>
 
       <div className="absolute inset-x-0 bottom-0 sm:bottom-[-4%] md:bottom-[-12%] lg:bottom-[-8%] h-[55%] sm:h-[75%] md:h-[80%] z-10 pointer-events-none">
-        
+
         <div ref={mobileScrollRef} className="flex sm:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide h-full items-end gap-0 px-4 pb-14 pointer-events-auto">
           {(() => {
             const mobileOrder = [galleryCategories[2], galleryCategories[3], galleryCategories[4], galleryCategories[0], galleryCategories[1]];
             return [...mobileOrder, ...mobileOrder, ...mobileOrder];
           })().map((item, idx) => (
-            <motion.div 
-              key={idx} 
+            <motion.div
+              key={idx}
               className="snap-center shrink-0 w-[75vw] h-full px-3"
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -303,10 +303,10 @@ const HeroSection: React.FC = () => {
               key={item.name}
               initial={{ y: "110%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ 
-                delay: 2.9 + (idx * 0.1), 
-                duration: 1.5, 
-                ease: [0.16, 1, 0.3, 1] as [number, number, number, number] 
+              transition={{
+                delay: 2.9 + (idx * 0.1),
+                duration: 1.5,
+                ease: [0.16, 1, 0.3, 1] as any
               }}
               className={`relative flex-1 max-w-[320px] ${item.h} ${item.mb} ${item.desktopOnly ? 'hidden md:block' : ''} ${item.tabletOnly ? 'hidden sm:block' : ''}`}
             >
